@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <!-- <Header> -->
+      <%- include("chucnang/header.ejs") %>
+      <!-- <End of Header> -->
+    
+      <body>
+          <!-- Navnar -->
+        <%- include("chucnang/navbar.ejs") %>
+          <!-- End of Navnar -->
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <form method="POST" action="/themmathang">
+      <div class="form-group">
+        <label for="">Tên mặt hàng</label>
+        <input type="text" name="ten" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter usr">
+        <label for="">Mô tả</label>
+        <input type="text" name="mota" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter usr">
+        <label for="">Giá tiền</label>
+        <input type="number" name="gia" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter usr">
+        <label for="">Ảnh</label>
+        <input type="text" name="anh" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter usr">
+        <label for="">Số lượng</label>
+        <input type="number" name="soluong" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter usr">
+        <label for="">Chuyên mục</label>
+        <select name="chuyenuc" id="chuyenuc">
+          <!-- Su dung forEach -->
+          <%  chuyenmuc.forEach(element => { %>
+            <%= element.ten %>
+            <option value= <%= element.id %></option> <%= element.ten %></option>
+       <% }); %>
+          
+        </select>
+      </div>
+     
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </body>
+</html>

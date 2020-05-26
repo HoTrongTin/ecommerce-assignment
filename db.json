@@ -1,0 +1,251 @@
+{
+  "User": [
+    {
+      "username": "thien456",
+      "password": "202cb962ac59075b964b07152d234b70",
+      "id": "",
+      "email": "",
+      "rule": "",
+      "giohang": "thien456"
+    },
+    {
+      "username": "admin",
+      "password": "202cb962ac59075b964b07152d234b70",
+      "giohang": "4sHNLGMo"
+    },
+    {
+      "username": "admin2",
+      "password": "202cb962ac59075b964b07152d234b70",
+      "giohang": "ve6aLwBh"
+    }
+  ],
+  "GioHang": [
+    {
+      "username": "thien456",
+      "mathang": [],
+      "idgiohang": "thien456"
+    },
+    {
+      "username": "admin2",
+      "idgiohang": "ve6aLwBh",
+      "mathang": [
+        {
+          "ten": "abcd",
+          "id": "1rBrQFNV",
+          "mota": "test",
+          "gia": "10000",
+          "anh": "https://znews-photo.zadn.vn/w660/Uploaded/lce_jwquc/2020_05_23/Z17622052020.png",
+          "soluong": "9999",
+          "soluongdat": "2"
+        }
+      ]
+    }
+  ],
+  "Chuyenmuc": [
+    {
+      "ten": "123",
+      "id": "UidrhuWQ",
+      "url": ""
+    },
+    {
+      "ten": "test2",
+      "id": "U2uFCGFS",
+      "url": ""
+    },
+    {
+      "ten": "test23",
+      "id": "yCMi5obp",
+      "url": "123"
+    },
+    {
+      "ten": "abcd",
+      "id": "XkIenITN",
+      "url": "123123"
+    },
+    {
+      "ten": "ghe",
+      "id": "OZWir4rm",
+      "url": "ghe"
+    },
+    {
+      "ten": "Bàn",
+      "id": "CaEcdk3d",
+      "url": "ban"
+    }
+  ],
+  "HoaDon": [
+    {
+      "idhoadon": "fe06W8PP",
+      "magiaodich": "BkZBI1UV",
+      "thanhtoan": "momo",
+      "usr": "thien456",
+      "hang": [
+        {
+          "ten": "abcd",
+          "gia": "10000",
+          "id": "1rBrQFNV",
+          "soluongdat": "5"
+        }
+      ],
+      "thanhtien": "50000",
+      "idgiohang": 0,
+      "thoigian": "24-4-2020-21h32p"
+    },
+    {
+      "idhoadon": "x8UYWWr7",
+      "magiaodich": "6kMxPDQl",
+      "thanhtoan": "momo",
+      "usr": "thien456",
+      "hang": [
+        {
+          "ten": "Ghế 1",
+          "gia": "1000",
+          "id": "k4vkUkLp",
+          "soluongdat": "2"
+        }
+      ],
+      "thanhtien": "2000",
+      "idgiohang": 0,
+      "thoigian": "24-4-2020-22h4p"
+    },
+    {
+      "idhoadon": "BC5Zk2jL",
+      "magiaodich": "uw3Ps03o",
+      "thanhtoan": "momo",
+      "usr": "admin2",
+      "hang": [
+        {
+          "ten": "abcd",
+          "gia": "10000",
+          "id": "1rBrQFNV",
+          "soluongdat": "1"
+        }
+      ],
+      "thanhtien": "10000",
+      "idgiohang": 0,
+      "thoigian": "25-4-2020-19h44p"
+    },
+    {
+      "idhoadon": "DI69gdrs",
+      "magiaodich": "TWIU2rJA",
+      "thanhtoan": "momo",
+      "usr": "admin2",
+      "hang": [
+        {
+          "ten": "abcd",
+          "id": "1rBrQFNV",
+          "mota": "test",
+          "gia": "10000",
+          "anh": "https://znews-photo.zadn.vn/w660/Uploaded/lce_jwquc/2020_05_23/Z17622052020.png",
+          "soluongdat": "5"
+        },
+        {
+          "ten": "TEST2",
+          "id": "vkEBPj1S",
+          "mota": "test3",
+          "gia": "1000000",
+          "anh": "https://genk.mediacdn.vn/thumb_w/660/139269124445442048/2020/5/24/dsc00432-1590308381711407041739.jpg",
+          "soluongdat": "1"
+        }
+      ],
+      "thanhtien": 1050000,
+      "idgiohang": "ve6aLwBh",
+      "thoigian": "25-4-2020-20h2p"
+    },
+    {
+      "idhoadon": "XwpLIzW8",
+      "magiaodich": "PzDODilt",
+      "thanhtoan": "momo",
+      "usr": "admin2",
+      "hang": [
+        {
+          "ten": "abcd",
+          "gia": "10000",
+          "id": "1rBrQFNV",
+          "soluongdat": "1"
+        }
+      ],
+      "thanhtien": "10000",
+      "idgiohang": 0,
+      "thoigian": "25-4-2020-20h9p"
+    },
+    {
+      "idhoadon": "IcpL4C42",
+      "magiaodich": "aogxEzc9",
+      "thanhtoan": "momo",
+      "usr": "admin2",
+      "hang": [
+        {
+          "ten": "abcd",
+          "gia": "10000",
+          "id": "1rBrQFNV",
+          "soluongdat": "1"
+        }
+      ],
+      "thanhtien": "NaN",
+      "idgiohang": 0,
+      "thoigian": "25-4-2020-20h15p"
+    },
+    {
+      "idhoadon": "74rs6aJ2",
+      "magiaodich": "vuMUDQzw",
+      "thanhtoan": "momo",
+      "usr": "admin2",
+      "hang": [
+        {
+          "ten": "abcd",
+          "gia": "10000",
+          "id": "1rBrQFNV",
+          "soluongdat": "1"
+        }
+      ],
+      "thanhtien": "10000",
+      "idgiohang": 0,
+      "thoigian": "25-4-2020-20h22p"
+    },
+    {
+      "idhoadon": "6XOoxwIk",
+      "magiaodich": "TjXpMkZz",
+      "thanhtoan": "momo",
+      "usr": "admin2",
+      "hang": [
+        {
+          "ten": "Ghế 1",
+          "gia": "1000",
+          "id": "k4vkUkLp",
+          "soluongdat": "1"
+        }
+      ],
+      "thanhtien": "1000",
+      "idgiohang": 0,
+      "thoigian": "25-4-2020-23h47p"
+    }
+  ],
+  "MatHang": [
+    {
+      "ten": "abcd",
+      "id": "1rBrQFNV",
+      "mota": "test",
+      "gia": "10000",
+      "anh": "https://znews-photo.zadn.vn/w660/Uploaded/lce_jwquc/2020_05_23/Z17622052020.png",
+      "soluong": "9999"
+    },
+    {
+      "ten": "TEST2",
+      "id": "vkEBPj1S",
+      "mota": "test3",
+      "gia": "1000000",
+      "anh": "https://genk.mediacdn.vn/thumb_w/660/139269124445442048/2020/5/24/dsc00432-1590308381711407041739.jpg",
+      "soluong": "100000",
+      "soluongdat": 1
+    },
+    {
+      "ten": "Ghế 1",
+      "id": "k4vkUkLp",
+      "mota": "àasfasaf",
+      "gia": "1000",
+      "anh": "https://product.hstatic.net/1000026716/product/ghe-game-warrior-raider-series-wgc205-blackred-1_737e9c3dfd9f4af9b5867174f36c4330.jpg",
+      "soluong": "999"
+    }
+  ]
+}
