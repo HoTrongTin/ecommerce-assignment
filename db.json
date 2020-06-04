@@ -37,15 +37,6 @@
           "anh": "https://znews-photo.zadn.vn/w660/Uploaded/lce_jwquc/2020_05_23/Z17622052020.png",
           "soluong": "9999",
           "soluongdat": "2"
-        },
-        {
-          "ten": "TEST2",
-          "id": "vkEBPj1S",
-          "mota": "test3",
-          "gia": "1000000",
-          "anh": "https://genk.mediacdn.vn/thumb_w/660/139269124445442048/2020/5/24/dsc00432-1590308381711407041739.jpg",
-          "soluong": "100000",
-          "soluongdat": "1"
         }
       ]
     }
@@ -232,29 +223,49 @@
   ],
   "MatHang": [
     {
-      "ten": "abcd",
-      "id": "1rBrQFNV",
-      "mota": "test",
-      "gia": "10000",
-      "anh": "https://znews-photo.zadn.vn/w660/Uploaded/lce_jwquc/2020_05_23/Z17622052020.png",
-      "soluong": "9999"
-    },
-    {
-      "ten": "TEST2",
-      "id": "vkEBPj1S",
-      "mota": "test3",
-      "gia": "1000000",
-      "anh": "https://genk.mediacdn.vn/thumb_w/660/139269124445442048/2020/5/24/dsc00432-1590308381711407041739.jpg",
-      "soluong": "100000",
-      "soluongdat": 1
-    },
-    {
       "ten": "Ghế 1",
-      "id": "k4vkUkLp",
-      "mota": "àasfasaf",
-      "gia": "1000",
-      "anh": "https://product.hstatic.net/1000026716/product/ghe-game-warrior-raider-series-wgc205-blackred-1_737e9c3dfd9f4af9b5867174f36c4330.jpg",
-      "soluong": "999"
+      "id": "UABD9xkN",
+      "mota": "Ghế đẹp nè",
+      "gia": "200000",
+      "anh": "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=633&q=80",
+      "soluong": "200",
+      "chuyenmuc": "ghe"
+    },
+    {
+      "ten": "Ghế 2",
+      "id": "onyCct5Q",
+      "mota": "Ghế đẹp nữa nè",
+      "gia": "150000",
+      "anh": "https://images.unsplash.com/photo-1519947486511-46149fa0a254?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "soluong": "100",
+      "chuyenmuc": "ghe"
+    },
+    {
+      "ten": "Ghế game",
+      "id": "LVImo5xl",
+      "mota": "Không đẹp nè",
+      "gia": "190000",
+      "anh": "https://images.unsplash.com/photo-1574189555774-7cbcd66d0fcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "soluong": "150",
+      "chuyenmuc": "ghe"
+    },
+    {
+      "ten": "Bàn 1",
+      "id": "GP4mRNlm",
+      "mota": "Bàn đẹp nè",
+      "gia": "500000",
+      "anh": "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "soluong": "120",
+      "chuyenmuc": "Bàn"
+    },
+    {
+      "ten": "Bàn game",
+      "id": "m0820HIz",
+      "mota": "Bàn ko đẹp nè",
+      "gia": "900000",
+      "anh": "https://images.unsplash.com/photo-1570993492881-25240ce854f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1328&q=80",
+      "soluong": "50",
+      "chuyenmuc": "Bàn"
     }
   ]
 }

@@ -351,3 +351,28 @@ module.exports.xacnhanthanhtoangiohang = function (req, res, next) {
     var donhang = db.get('HoaDon').find({ idhoadon: idhoadon }).value();
     res.render('thongtinhoadon', { chuyenmuc: chuyenmuc, donhang: donhang, name: username });
 }
+
+
+///////////////////////// TIN //////////////////////////////
+module.exports.xemtheodanhmuc = function(req, res, next){
+
+    var name;
+    if (req.cookies.info) {
+        if (req.cookies.info.username) {
+            name = req.cookies.info.username;
+        } else {
+            name = "";
+
+        }
+    }
+    else {
+        name = "";
+
+    }
+
+    var dsSanpham = db.get("MatHang").filter({chuyenmuc: req.params.tendanhmuc}).value();
+    var find = db.get('Chuyenmuc').value();
+    console.log(dsSanpham);
+    console.log("Params la gi: ", req.params);
+    res.render('xemtheodanhmuc', {name: name, listsp: dsSanpham, find: find});
+}

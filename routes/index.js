@@ -81,4 +81,8 @@ router.post('/thanhtoangiohang', auth.authen, controller.thanhtoangiohang);
 //Thanh toan gio hang
 router.post('/xacnhanthanhtoangiohang', auth.authen, controller.xacnhanthanhtoangiohang);
 
+
+////////////////////////// TINNNNNNNN //////////////////////////////
+router.get('/danhmuc/:tendanhmuc', controller.xemtheodanhmuc);
+
 module.exports = router;

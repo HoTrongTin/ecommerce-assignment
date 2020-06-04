@@ -11,7 +11,7 @@
     <ul>
       <p>Danh mục</p>
       <%  find.forEach(element => { %>
-        <li><a href= <%= element.url %> > <%= element.ten %></a></li>
+        <li><a href=<%= "danhmuc/" + element.ten %> > <%= element.ten %></a></li>
 
    <% }); %>
     </ul>
@@ -19,8 +19,8 @@
       <p>Sản phẩm</p>
       <%  mathang.forEach(element => { %>
 
-      <div class="card" style="width: 18rem;">
-        <img src= <%= element.anh %> alt=<%= element.ten %>>
+      <div class="card" style="width: 250px; border: 2px solid blue; margin: 30px">
+        <img src= <%= element.anh %> alt=<%= element.ten %> style="height: 246px; width: 246px;">
         <div class="card-body">
           <h5 class="card-title"> Mặt hàng: <%= element.ten %></h5>
           <p class="card-text">Giá <%= element.gia %>đ</p>
@@ -29,9 +29,9 @@
             <input type="hidden" name="id" value= <%= element.id %>>
             <button type="submit">Chọn mua</button>
           </form>
-     <% }); %>
         </div>
       </div>
+      <% }); %>
       
         
   

@@ -23,11 +23,11 @@
         <label for="">Số lượng</label>
         <input type="number" name="soluong" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter usr">
         <label for="">Chuyên mục</label>
-        <select name="chuyenuc" id="chuyenuc">
+        <select name="chuyenmuc" id="chuyenmuc">
           <!-- Su dung forEach -->
           <%  chuyenmuc.forEach(element => { %>
             <%= element.ten %>
-            <option value= <%= element.id %></option> <%= element.ten %></option>
+            <option value= <%= element.ten %>> <%= element.ten %></option>
        <% }); %>
           
         </select>
