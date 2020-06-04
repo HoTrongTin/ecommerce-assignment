@@ -85,4 +85,9 @@ router.post('/xacnhanthanhtoangiohang', auth.authen, controller.xacnhanthanhtoan
 ////////////////////////// TINNNNNNNN //////////////////////////////
 router.get('/danhmuc/:tendanhmuc', controller.xemtheodanhmuc);
 
+// Tới trang chỉnh sửa thông tin sản phẩm. theo id
+router.get('/chinhsua/:id', auth.authen, controller.chinhsuamathang);
+router.post('/chinhsua/:id', auth.authen, controller.postchinhsuamathang);      // Xử lí form chỉnh sửa
+router.post('/xoa/:id', auth.authen, controller.xoasanpham);      // Xử lí form chỉnh sửa
+
 module.exports = router;

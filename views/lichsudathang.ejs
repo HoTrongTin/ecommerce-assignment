@@ -29,7 +29,7 @@
           <td><%= element.thanhtoan %></td>
           <td><%= element.magiaodich %></td>
           <td><%= element.thanhtien %></td>
-          <td><%= element.thoigian %></td>
+          <td><%= new Date(element.thoigian).toLocaleString() %></td>
           <td><form action="chitietlichsudonhang" method="post">
 
         <input type="hidden" name="idhoadon" value=<%= element.idhoadon %>>

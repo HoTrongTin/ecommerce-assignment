@@ -19,20 +19,15 @@ module.exports.index = function (req, res) {
     if (req.cookies.info) {
         if (req.cookies.info.username) {
             name = req.cookies.info.username;
-
-            giohang = db.get('MatHang').find({ username: name }).value();
-
         } else {
             name = "";
-
         }
     }
     else {
         name = "";
-
     }
 
-    res.render('index', { title: 'Express', find: find, mathang: mathang, name: name, giohang: giohang });
+    res.render('index', { title: 'Express', find: find, listsp: mathang, name: name});
 }
 module.exports.dangki = function (req, res) {
     var name;
@@ -145,10 +140,12 @@ module.exports.postthemmathang = function (req, res, next) {
     var anh = req.body.anh;
     var soluong = req.body.soluong;
     var chuyenmuc = req.body.chuyenmuc;
+    var giakm = req.body.giakm;
+    var hankm = req.body.hankm;
     var id = randomid();
 
     db.get('MatHang')
-        .push({ ten: ten, id: id, mota: mota, gia: gia, anh: anh, soluong: soluong, chuyenmuc: chuyenmuc })
+        .push({ ten: ten, id: id, mota: mota, gia: gia, anh: anh, soluong: soluong, chuyenmuc: chuyenmuc , giakm: giakm, hankm: hankm})
         .write()
     var find = db.get('Chuyenmuc').value();
     res.redirect('/');
@@ -176,11 +173,19 @@ module.exports.thanhtoan = function (req, res, next) {
     var name = req.cookies.info.username;
 
     var id = req.body.id;
+    var find = db.get('Chuyenmuc').value();
+    var mathang = db.get('MatHang').find({ id: id }).cloneDeep().value();
 
-    var mathang = db.get('MatHang').find({ id: id }).value();
+    // Kiểm tra coi có giá km ko
+    var date1 = new Date(mathang.hankm)
+    var date2 = new Date()
+    if ((date1.getTime() >= date2.getTime()) && (mathang.giakm != "")) { 
+        mathang.gia = mathang.giakm;
+    }
+
     var chuyenmuc = db.get('Chuyenmuc').value();
 
-    res.render('thanhtoan', { chuyenmuc: chuyenmuc, mathang: mathang, name: name });
+    res.render('thanhtoan', { chuyenmuc: chuyenmuc, mathang: mathang, name: name, find: find});
 
     // res.render('index', { title: 'Express', status: '',find:find  });
 }
@@ -190,12 +195,21 @@ module.exports.hoadon = function (req, res, next) {
     var id = req.body.id;
     var soluongdat = req.body.soluongdat;
     var usr = req.cookies.info.username;
-    var mathang = db.get('MatHang').find({ id: id }).value();
+    var mathang = db.get('MatHang').find({ id: id }).cloneDeep().value();
+    var find = db.get('Chuyenmuc').value();
+
+    // Kiểm tra coi có giá km ko
+    var date1 = new Date(mathang.hankm)
+    var date2 = new Date()
+    if ((date1.getTime() >= date2.getTime()) && (mathang.giakm != "")) { 
+        mathang.gia = mathang.giakm;
+    }
+
     var chuyenmuc = db.get('Chuyenmuc').value();
     var donhang = { id: id, soluongdat: soluongdat, usr: usr, mathang: mathang, }
     console.log(soluongdat);
     
-    res.render('hoadon', { chuyenmuc: chuyenmuc, mathang: mathang, donhang: donhang, name: usr ,soluongdat:soluongdat});
+    res.render('hoadon', { chuyenmuc: chuyenmuc, mathang: mathang, donhang: donhang, name: usr ,soluongdat:soluongdat, find: find});
 }
 //POST xac nhan thanh toan
 module.exports.xacnhanthanhtoan = function (req, res, next) {
@@ -206,17 +220,30 @@ module.exports.xacnhanthanhtoan = function (req, res, next) {
     var thanhtien = req.body.thanhtien;
     var soluongdat = req.body.soluongdat;
     var usr = req.cookies.info.username;
-    var thoigian = d.getDate() + "-" + d.getMonth() + "-" + d.getFullYear() + "-" + d.getHours() + "h" + d.getMinutes() + "p";
+    // var thoigian = d.getDate() + "-" + d.getMonth() + "-" + d.getFullYear() + "-" + d.getHours() + "h" + d.getMinutes() + "p";
+    var thoigian = d;
     var mathang = db.get('MatHang').find({ id: id }).value();
+    var find = db.get('Chuyenmuc').value();
+
+    // Kiểm tra coi có giá km ko
+    var date1 = new Date(mathang.hankm)
+    var date2 = new Date()
+    var gia;
+    if ((date1.getTime() >= date2.getTime()) && (mathang.giakm < mathang.gia)) { 
+        gia = mathang.giakm
+    }else{
+        gia = mathang.gia
+    }
+
     var chuyenmuc = db.get('Chuyenmuc').value();
 
-    var donhang = { idhoadon: idhoadon, magiaodich: magiaodich, thanhtoan: thanhtoan, usr: usr, hang: [{ ten: mathang.ten, gia: mathang.gia, id: id, soluongdat: soluongdat }], thanhtien: thanhtien, idgiohang: 0, thoigian: thoigian };
+    var donhang = { idhoadon: idhoadon, magiaodich: magiaodich, thanhtoan: thanhtoan, usr: usr, hang: [{ ten: mathang.ten, gia: gia, id: id, soluongdat: soluongdat }], thanhtien: thanhtien, idgiohang: 0, thoigian: thoigian };
     db.get('HoaDon')
-        .push({ idhoadon: idhoadon, magiaodich: magiaodich, thanhtoan: thanhtoan, usr: usr, hang: [{ ten: mathang.ten, gia: mathang.gia, id: id, soluongdat: soluongdat }], thanhtien: thanhtien, idgiohang: 0, thoigian: thoigian })
+        .push(donhang)
         .write()
     var name = req.cookies.info.username;
 
-    res.render('thongtinhoadon', { chuyenmuc: chuyenmuc, mathang: mathang, donhang: donhang, name: name });
+    res.render('thongtinhoadon', { chuyenmuc: chuyenmuc, mathang: mathang, donhang: donhang, name: name , find: find});
 }
 
 //GET Lich su giao dich
@@ -254,6 +281,7 @@ module.exports.logout = function (req, res, next) {
     res.cookie('info', { expires: Date.now() });
     res.redirect('/');
 }
+
 //Them gio hang
 module.exports.themgiohang = function (req, res, next) {
     //    res.cookie('info',{'username':usr, 'password':pass});
@@ -319,12 +347,20 @@ module.exports.thanhtoangiohang = function (req, res, next) {
     var idgiohang = req.body.idgiohang;
     var username = req.cookies.info.username;
     var chuyenmuc = db.get('Chuyenmuc').value();
-    var giohang = db.get('GioHang').find({ idgiohang: idgiohang }).value();
+    var giohang = db.get('GioHang').find({ idgiohang: idgiohang }).cloneDeep().value();
+    var find = db.get('Chuyenmuc').value();
     var tongtien = 0;
     giohang.mathang.forEach(element=>{
+        // Kiểm tra coi có giá km ko
+        var date1 = new Date(element.hankm)
+        var date2 = new Date()
+        if ((date1.getTime() >= date2.getTime()) && (element.giakm != "")) { 
+            element.gia = element.giakm;
+        }
+
         tongtien += element.gia*element.soluongdat;
     })
-    res.render('thanhtoangiohang', { chuyenmuc: chuyenmuc, name: username, giohang: giohang, tongtien:tongtien });
+    res.render('thanhtoangiohang', { chuyenmuc: chuyenmuc, name: username, giohang: giohang, tongtien:tongtien, find: find });
 }
 //Xac nhan thanh toan gio hang
 module.exports.xacnhanthanhtoangiohang = function (req, res, next) {    
@@ -333,23 +369,47 @@ module.exports.xacnhanthanhtoangiohang = function (req, res, next) {
     var thanhtoan = req.body.thanhtoan;
     var chuyenmuc = db.get('Chuyenmuc').value();
     var giohang = db.get('GioHang').find({ idgiohang: idgiohang }).value();
+    var find = db.get('Chuyenmuc').value();
     var tongtien = 0;
+    var hang = [];
     giohang.mathang.forEach(element=>{
-        tongtien += element.gia*element.soluongdat;
+        var hang_temp = {};
+        hang_temp.ten = element.ten;
+        hang_temp.id = element.id;
+        hang_temp.soluongdat = element.soluongdat;
+
+        // Kiểm tra coi có giá km ko
+        var date1 = new Date(element.hankm)
+        var date2 = new Date()
+        if ((date1.getTime() >= date2.getTime()) && (element.giakm != "")) { 
+            tongtien += element.giakm*element.soluongdat;
+            hang_temp.gia = element.giakm;
+        }else{
+            tongtien += element.gia*element.soluongdat;
+            hang_temp.gia = element.gia;
+        }
+        hang.push(hang_temp);
+        
     })
 
     var idhoadon = randomid();
     var magiaodich = randomid();
    
-    var hang = giohang.mathang;
-    var thoigian = d.getDate() + "-" + d.getMonth() + "-" + d.getFullYear() + "-" + d.getHours() + "h" + d.getMinutes() + "p";
-    console.log("here");
+    
+    // var thoigian = d.getDate() + "-" + d.getMonth() + "-" + d.getFullYear() + "-" + d.getHours() + "h" + d.getMinutes() + "p";
+    var thoigian = d;
+    // console.log("here");
 
+    var donhang = { idhoadon: idhoadon, magiaodich: magiaodich, thanhtoan: thanhtoan, usr: username, hang: hang, thanhtien: tongtien, idgiohang: idgiohang, thoigian: thoigian };
     db.get('HoaDon')
-        .push({ idhoadon: idhoadon, magiaodich: magiaodich, thanhtoan: thanhtoan, usr: username, hang:hang, thanhtien: tongtien, idgiohang: idgiohang, thoigian: thoigian })
+        .push(donhang)
         .write()
+
+    // Sau khi hoàn thành thì empty cái giỏ hàng
+    db.get('GioHang').find({ idgiohang: idgiohang }).assign({mathang: []}).write();
+
     var donhang = db.get('HoaDon').find({ idhoadon: idhoadon }).value();
-    res.render('thongtinhoadon', { chuyenmuc: chuyenmuc, donhang: donhang, name: username });
+    res.render('thongtinhoadon', { chuyenmuc: chuyenmuc, donhang: donhang, name: username, find: find});
 }
 
 
@@ -372,7 +432,75 @@ module.exports.xemtheodanhmuc = function(req, res, next){
 
     var dsSanpham = db.get("MatHang").filter({chuyenmuc: req.params.tendanhmuc}).value();
     var find = db.get('Chuyenmuc').value();
-    console.log(dsSanpham);
-    console.log("Params la gi: ", req.params);
+    // console.log(dsSanpham);
+    // console.log("Params la gi: ", req.params);
+    res.render('xemtheodanhmuc', {name: name, listsp: dsSanpham, find: find});
+}
+
+// 
+module.exports.chinhsuamathang = function(req, res, next){
+
+    var name;
+    if (req.cookies.info) {
+        if (req.cookies.info.username) {
+            name = req.cookies.info.username;
+        } else {
+            name = "";
+        }
+    }
+    else {
+        name = "";
+    }
+    //console.log("Triggered!");
+    var sanpham = db.get("MatHang").filter({id: req.params.id}).value()[0];
+    console.log(sanpham);
+
+    var chuyenmuc = db.get('Chuyenmuc').value();
+
+    res.render('chinhsuamathang', {title: "Triggered :v", sanpham: sanpham, chuyenmuc: chuyenmuc, name: name});
+}
+
+module.exports.postchinhsuamathang = function(req, res, next){
+    // console.log("Triggered!");
+    db.get("MatHang").find({id: req.params.id}).assign({ten: req.body.ten, mota: req.body.mota, gia: req.body.gia, anh: req.body.anh, soluong: req.body.soluong, chuyenmuc: req.body.chuyenmuc, giakm: req.body.giakm, hankm: req.body.hankm}).write();
+
+    // Update xong thì trở về trang danh mục sản phẩm
+    var name;
+    if (req.cookies.info) {
+        if (req.cookies.info.username) {
+            name = req.cookies.info.username;
+        } else {
+            name = "";
+        }
+    }
+    else {
+        name = "";
+    }
+    var dsSanpham = db.get("MatHang").filter({chuyenmuc: req.body.chuyenmuc}).value();
+    var find = db.get('Chuyenmuc').value();
+    // console.log(dsSanpham);
+    // console.log("Params la gi: ", req.params);
+    res.render('xemtheodanhmuc', {name: name, listsp: dsSanpham, find: find});
+}
+
+module.exports.xoasanpham = function(req, res, next){
+    console.log("Triggered!");
+    var chuyenmuc = db.get("MatHang").find({id: req.params.id}).value().chuyenmuc;
+    db.get("MatHang").remove({id: req.params.id}).write();
+
+    // Xóa xong thì trở về trang danh mục sản phẩm
+    var name;
+    if (req.cookies.info) {
+        if (req.cookies.info.username) {
+            name = req.cookies.info.username;
+        } else {
+            name = "";
+        }
+    }
+    else {
+        name = "";
+    }
+    var dsSanpham = db.get("MatHang").filter({chuyenmuc: chuyenmuc}).value();
+    var find = db.get('Chuyenmuc').value();
     res.render('xemtheodanhmuc', {name: name, listsp: dsSanpham, find: find});
 }

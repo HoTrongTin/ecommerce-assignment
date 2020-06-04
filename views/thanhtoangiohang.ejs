@@ -9,13 +9,13 @@
         <!-- Navnar -->
       <%- include("chucnang/navbar.ejs") %>
         <!-- End of Navnar -->
-  <ul>
-    <p>Danh mục</p>
-    <%  chuyenmuc.forEach(element => { %>
-    <li><a href=<%= element.url %>> <%= element.ten %></a></li>
-
-    <% }); %>
-  </ul>
+        <ul>
+          <p>Danh mục</p>
+          <%  find.forEach(element => { %>
+            <li><a href=<%= "danhmuc/" + element.ten %> > <%= element.ten %></a></li>
+    
+          <% }); %>
+        </ul>
   
 
     <p>Thông tin đơn hàng</p>
@@ -27,8 +27,9 @@
       <!-- Su dung forEach -->
         <option value= "momo" > Momo</option>
         <option value= "vnpay" >VNPAY</option>
+        <option value= "ether" >Ether</option>
     </select>
-    <button type="submit">Xác nhận</button>
+    <button type="submit" class="btn btn-success">Xác nhận</button>
 
   </form>
   <% giohang.mathang.forEach(mathang => { %>

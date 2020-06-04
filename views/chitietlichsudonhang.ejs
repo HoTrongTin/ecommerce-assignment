@@ -13,7 +13,7 @@
     <p>Hình thức thanh toán: <%= donhang.thanhtoan %></p>
     <p>Mã giao dịch: <%= donhang.magiaodich %> </p>
     <p>Số tiền: <%= donhang.thanhtien %></p>
-      <p>Thời gian đặt hàng: <%= donhang.thoigian %></p>
+      <p>Thời gian đặt hàng: <%= new Date(donhang.thoigian).toLocaleString() %></p>
     
     <table class="table">
       <thead>

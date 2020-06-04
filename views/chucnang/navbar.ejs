@@ -8,27 +8,27 @@
     <ul class="navbar-nav mr-auto">
       <% if(!name){ %>
       <li class="nav-item active">
-        <a class="nav-link" href="dangki">Đăng kí</a>
+        <a class="nav-link" href="/dangki">Đăng kí</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="dangnhap">Đăng nhập</a>
+        <a class="nav-link" href="/dangnhap">Đăng nhập</a>
       </li>
     </li>
     <% } %>
     <li class="nav-item">
-      <a class="nav-link" href="themchuyenmuc">Thêm chuyên mục</a>
+      <a class="nav-link" href="/themchuyenmuc">Thêm chuyên mục</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="themmathang">Thêm mặt hàng</a>
+      <a class="nav-link" href="/themmathang">Thêm mặt hàng</a>
     </li>
-     <li>          <a class="nav-link" href="lichsudathang">Lịch sử đặt hàng</a>
+     <li>          <a class="nav-link" href="/lichsudathang">Lịch sử đặt hàng</a>
      </li>
      <% if(name){%>
       <li>          <a class="nav-link" href="/">Xin chao <%= name %></a>
       </li>
-      <li>          <a class="nav-link" href="giohang">Xem giỏ hàng</a>
+      <li>          <a class="nav-link" href="/giohang">Xem giỏ hàng</a>
       </li>
-     <li>          <a class="nav-link" href="logout">Đăng xuất</a>
+     <li>          <a class="nav-link" href="/logout">Đăng xuất</a>
      </li>
      <% } %>
     </ul>
