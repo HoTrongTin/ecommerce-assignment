@@ -32,7 +32,7 @@
         <input type="hidden" name="id" value=<%= mathang.id %>>
         <input type="hidden" id="gia" name="gia" value=<%= mathang.gia %>>
         <label>Số lượng</label>
-        <input type="number" id="soluongdat" name="soluongdat" value="1"  onkeyup="myFunction()"	>
+        <input type="number" id="soluongdat" name="soluongdat" value="1"  onchange="myFunction()"	>
         <p>Thành tiền:</p>
         <p id="thanhtien"><%= mathang.gia %></p>
         <button type="submit">Mua hàng</button>
@@ -45,10 +45,10 @@
 
   <script>
     function myFunction() {
-      var soluong = document.getElementById("soluong").value;
+      var soluong = document.getElementById("soluongdat").value;
       var gia = document.getElementById("gia").value;
       document.getElementById("thanhtien").innerHTML = soluong * gia;
-      myFunction();
+      //myFunction();
     }
   </script>
   <!-- Optional JavaScript -->

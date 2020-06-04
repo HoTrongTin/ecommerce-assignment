@@ -262,6 +262,7 @@ module.exports.themgiohang = function (req, res, next) {
     var hang = db.get('MatHang').find({ id: idhang }).value();
     var giohang = db.get("User").find({ username: usr }).value().giohang;
     var mathang = db.get("GioHang").find({ idgiohang: giohang }).value().mathang;
+    // Sửa chỗ số lượng này
     hang["soluongdat"] = 1;
     console.log(hang);
 
